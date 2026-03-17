@@ -39,32 +39,23 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-950">
-      {/* Elementos decorativos de fondo */}
-      <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-[100px] opacity-30"></div>
-      <div className="absolute top-[20%] right-[-10%] w-96 h-96 bg-cyan-400 rounded-full mix-blend-multiply filter blur-[100px] opacity-20"></div>
-      <div className="absolute bottom-[-10%] left-[20%] w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-[100px] opacity-20"></div>
-
-      <div className="glass w-full max-w-md p-10 rounded-3xl z-10 mx-4 transition-all-smooth hover-lift border border-white/10 shadow-2xl">
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-tr from-cyan-400 to-blue-500 mb-4 shadow-lg shadow-blue-500/30">
-            <svg xmlns="http://www.w3.org/msqrt" className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
-            </svg>
-          </div>
-          <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200">
-            AeroEmpaque QR
+    <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-[#1B243B]">
+      <div className="w-full max-w-[420px] p-10 rounded-[40px] z-10 mx-4 bg-[#39425B]/80 backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-white/5">
+        <div className="text-center mb-10 mt-2">
+          <h1 className="text-[36px] font-bold text-white tracking-wide">
+            Login
           </h1>
-          <p className="text-blue-300 mt-2 text-sm uppercase tracking-widest font-semibold opacity-80">Portal Operativo</p>
         </div>
 
         <form onSubmit={handleLogin} className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-blue-200 mb-2">Correo Electrónico</label>
+            <label className="block text-[11px] font-bold text-white uppercase tracking-widest mb-2 ml-4">
+              Email
+            </label>
             <input
               type="email"
               required
-              className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-2xl focus:ring-2 focus:ring-cyan-400 focus:border-transparent outline-none text-white placeholder-blue-300/50 backdrop-blur-md transition-all-smooth shadow-inner"
+              className="w-full px-6 py-[18px] bg-[#4E5C78] border border-transparent rounded-[30px] focus:ring-1 focus:ring-slate-300 outline-none text-white placeholder-slate-300/70 font-medium transition-all"
               placeholder="admin@aeroempaque.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -72,11 +63,13 @@ export default function LoginPage() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-blue-200 mb-2">Contraseña</label>
+            <label className="block text-[11px] font-bold text-white uppercase tracking-widest mb-2 ml-4">
+              Password
+            </label>
             <input
               type="password"
               required
-              className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-2xl focus:ring-2 focus:ring-cyan-400 focus:border-transparent outline-none text-white placeholder-blue-300/50 backdrop-blur-md transition-all-smooth shadow-inner"
+              className="w-full px-6 py-[18px] bg-[#4E5C78] border border-transparent rounded-[30px] focus:ring-1 focus:ring-slate-300 outline-none text-white placeholder-slate-300/70 font-medium transition-all tracking-[0.2em]"
               placeholder="••••••••"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -84,26 +77,28 @@ export default function LoginPage() {
           </div>
 
           {error && (
-            <div className="bg-red-500/20 border border-red-500/50 rounded-xl p-4 text-red-200 text-sm text-center animate-pulse">
+            <div className="bg-red-500/20 border border-red-500/50 rounded-[30px] p-4 text-red-200 text-sm text-center animate-pulse">
               {error}
             </div>
           )}
 
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold py-4 px-4 rounded-2xl shadow-[0_0_20px_rgba(59,130,246,0.5)] transform transition-all-smooth hover:-translate-y-1 active:translate-y-0 disabled:opacity-70 disabled:cursor-not-allowed mt-4"
-          >
-            {loading ? (
-              <span className="flex items-center justify-center">
-                <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                Verificando...
-              </span>
-            ) : 'Ingresar al Sistema'}
-          </button>
+          <div className="pt-2">
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full bg-[#ED7044] hover:bg-[#D95F35] text-white font-bold py-[18px] px-4 rounded-[30px] transform transition-all active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed tracking-wide text-[15px]"
+            >
+              {loading ? (
+                <span className="flex items-center justify-center">
+                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Procesando...
+                </span>
+              ) : 'Sign In'}
+            </button>
+          </div>
         </form>
       </div>
     </div>
