@@ -38,34 +38,41 @@ export default function GenerarEtiquetasPage() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto mt-10">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-slate-900">Generación de Etiquetas</h1>
-        <p className="text-slate-500 mt-2">Asigne un nuevo lote de códigos numéricos para imprimir códigos QR.</p>
+    <div className="max-w-3xl mx-auto mt-4 lg:mt-10 px-2 lg:px-0">
+      <div className="mb-8 p-6 bg-white rounded-3xl shadow-sm border border-slate-100">
+        <h1 className="text-2xl lg:text-3xl font-bold text-slate-900 flex items-center gap-3">
+          <div className="p-2 bg-[#E8F8EE] rounded-xl text-[#3CC879]">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 lg:h-8 lg:w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+            </svg>
+          </div>
+          Generación de Etiquetas
+        </h1>
+        <p className="text-slate-500 mt-2 text-sm lg:text-base">Asigne un nuevo lote de códigos numéricos para imprimir códigos QR.</p>
       </div>
 
-      <div className="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 p-8 transition-all-smooth hover-lift">
+      <div className="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 p-6 lg:p-8 transition-all-smooth hover-lift">
         <form onSubmit={handleGenerate} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">ID Inicial (Numérico)</label>
+              <label className="block text-xs font-bold text-[#3CC879] uppercase tracking-widest mb-2 ml-2">ID Inicial (Numérico)</label>
               <input
                 type="number"
                 min="1"
                 required
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-slate-800 transition-all-smooth"
+                className="w-full px-5 py-3 lg:py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-[#3CC879] focus:border-transparent outline-none text-slate-800 transition-all-smooth"
                 placeholder="Ej. 1000"
                 value={startId}
                 onChange={(e) => setStartId(e.target.value)}
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">ID Final (Numérico)</label>
+              <label className="block text-xs font-bold text-[#3CC879] uppercase tracking-widest mb-2 ml-2">ID Final (Numérico)</label>
               <input
                 type="number"
                 min="1"
                 required
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-slate-800 transition-all-smooth"
+                className="w-full px-5 py-3 lg:py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-[#3CC879] focus:border-transparent outline-none text-slate-800 transition-all-smooth"
                 placeholder="Ej. 1500"
                 value={endId}
                 onChange={(e) => setEndId(e.target.value)}
@@ -73,11 +80,11 @@ export default function GenerarEtiquetasPage() {
             </div>
           </div>
 
-          <div className="bg-blue-50 p-4 rounded-xl border border-blue-100 flex items-start gap-3">
-            <svg xmlns="http://www.w3.org/msqrt" className="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="bg-[#E8F8EE] p-4 lg:p-5 rounded-2xl border border-[#3CC879]/30 flex items-start gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-[#3CC879] flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <p className="text-sm text-blue-800">
+            <p className="text-sm text-[#2DA661] font-medium leading-relaxed">
               Asegúrese de que el rango no exista previamente. Se registrará la acción en la bitácora de auditoría a su nombre de usuario.
             </p>
           </div>
@@ -97,11 +104,11 @@ export default function GenerarEtiquetasPage() {
             </div>
           )}
 
-          <div className="pt-2">
+          <div className="pt-4 lg:pt-6">
             <button
               type="submit"
               disabled={status.type === 'loading'}
-              className="w-full md:w-auto px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/30 transform transition-all-smooth hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="w-full lg:w-auto px-8 py-4 bg-[#ED7044] hover:bg-[#D95F35] text-white font-bold rounded-2xl shadow-lg shadow-[#ED7044]/30 transform transition-all-smooth hover:-translate-y-1 active:translate-y-0 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-base"
             >
               {status.type === 'loading' ? (
                 <>
@@ -113,10 +120,10 @@ export default function GenerarEtiquetasPage() {
                 </>
               ) : (
                 <>
-                  <svg xmlns="http://www.w3.org/msqrt" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                   </svg>
-                  Generar Lote
+                  Generar Lote de Etiquetas
                 </>
               )}
             </button>

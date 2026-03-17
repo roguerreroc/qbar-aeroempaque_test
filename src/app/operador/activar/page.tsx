@@ -66,37 +66,37 @@ export default function ActivarEtiquetaPage() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto mt-6">
+    <div className="max-w-4xl mx-auto mt-4 lg:mt-6 px-2 lg:px-0">
       <div className="mb-6 border-b border-slate-200 pb-4 flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-slate-900">Activar Etiqueta</h1>
-          <p className="text-slate-500 mt-1">Vincule un código QR físico a la reserva de un pasajero.</p>
+          <h1 className="text-2xl lg:text-3xl font-bold text-slate-900">Activar Etiqueta</h1>
+          <p className="text-slate-500 mt-1 text-sm lg:text-base">Vincule un código QR físico a la reserva de un pasajero.</p>
         </div>
-        <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center shadow-inner">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div className="w-10 h-10 lg:w-12 lg:h-12 bg-[#E8F8EE] text-[#3CC879] rounded-2xl flex items-center justify-center shadow-inner">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 lg:h-6 lg:w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
             </svg>
         </div>
       </div>
 
-      <div className="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 p-8 transition-all-smooth hover-lift">
+      <div className="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 p-6 lg:p-8 transition-all-smooth hover-lift">
         <form onSubmit={handleActivate} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
             <div className="md:col-span-2">
-              <label className="block text-sm font-semibold text-slate-700 mb-2">ID de Etiqueta Escaneada</label>
+              <label className="block text-xs font-bold text-[#3CC879] uppercase tracking-widest mb-2 ml-2">ID de Etiqueta Escaneada</label>
               <div className="relative">
                 <input
                   type="number"
                   name="etiquetaId"
                   required
                   autoFocus
-                  className="w-full px-4 py-4 pl-14 bg-slate-50 border-2 border-dashed border-blue-300 rounded-xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 outline-none text-slate-900 font-mono text-xl transition-all-smooth"
+                  className="w-full px-4 py-4 pl-14 bg-slate-50 border-2 border-dashed border-[#3CC879]/40 rounded-2xl focus:ring-4 focus:ring-[#3CC879]/20 focus:border-[#3CC879] outline-none text-slate-900 font-mono text-xl transition-all-smooth"
                   placeholder="Escanee o escriba el código..."
                   value={formData.etiquetaId}
                   onChange={handleChange}
                 />
-                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-blue-500 p-1 bg-white rounded-lg shadow-sm border border-slate-100">
+                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-[#3CC879] p-1 bg-white rounded-lg shadow-sm border border-slate-100">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
                   </svg>
@@ -105,12 +105,12 @@ export default function ActivarEtiquetaPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Código de Reserva (PNR)</label>
+              <label className="block text-xs font-bold text-[#3CC879] uppercase tracking-widest mb-2 ml-2">Código de Reserva (PNR)</label>
               <input
                 type="text"
                 name="reserva"
                 required
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none uppercase font-mono"
+                className="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-[#3CC879] outline-none uppercase font-mono transition-all-smooth"
                 placeholder="Ej. XYZ123"
                 value={formData.reserva}
                 onChange={handleChange}
@@ -118,10 +118,10 @@ export default function ActivarEtiquetaPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Tipo de Equipaje</label>
+              <label className="block text-xs font-bold text-[#3CC879] uppercase tracking-widest mb-2 ml-2">Tipo de Equipaje</label>
               <select
                 name="tipoEquipajeId"
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none appearance-none"
+                className="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-[#3CC879] outline-none appearance-none transition-all-smooth"
                 value={formData.tipoEquipajeId}
                 onChange={handleChange}
               >
@@ -132,13 +132,13 @@ export default function ActivarEtiquetaPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Aeropuerto Origen (IATA)</label>
+              <label className="block text-xs font-bold text-[#3CC879] uppercase tracking-widest mb-2 ml-2">Aeropuerto Origen (IATA)</label>
               <input
                 type="text"
                 name="vueloOrigen"
                 required
                 maxLength={3}
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none uppercase font-semibold tracking-wider"
+                className="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-[#3CC879] outline-none uppercase font-semibold tracking-wider transition-all-smooth"
                 placeholder="BOG"
                 value={formData.vueloOrigen}
                 onChange={handleChange}
@@ -146,13 +146,13 @@ export default function ActivarEtiquetaPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Aeropuerto Destino (IATA)</label>
+              <label className="block text-xs font-bold text-[#3CC879] uppercase tracking-widest mb-2 ml-2">Aeropuerto Destino (IATA)</label>
               <input
                 type="text"
                 name="vueloDestino"
                 required
                 maxLength={3}
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none uppercase font-semibold tracking-wider"
+                className="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-[#3CC879] outline-none uppercase font-semibold tracking-wider transition-all-smooth"
                 placeholder="MDE"
                 value={formData.vueloDestino}
                 onChange={handleChange}
@@ -160,36 +160,36 @@ export default function ActivarEtiquetaPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Validez Desde</label>
+              <label className="block text-xs font-bold text-[#3CC879] uppercase tracking-widest mb-2 ml-2">Validez Desde</label>
               <input
                 type="date"
                 name="fechaInicio"
                 required
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-[#3CC879] outline-none transition-all-smooth"
                 value={formData.fechaInicio}
                 onChange={handleChange}
               />
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Validez Hasta</label>
+              <label className="block text-xs font-bold text-[#3CC879] uppercase tracking-widest mb-2 ml-2">Validez Hasta</label>
               <input
                 type="date"
                 name="fechaFin"
                 required
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none"
+                className="w-full px-5 py-3 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-[#3CC879] outline-none transition-all-smooth"
                 value={formData.fechaFin}
                 onChange={handleChange}
               />
             </div>
             
             <div className="md:col-span-2">
-              <label className="block text-sm font-semibold text-slate-700 mb-2">Precio Cobrado ($)</label>
+              <label className="block text-xs font-bold text-[#ED7044] uppercase tracking-widest mb-2 ml-2">Precio Cobrado ($)</label>
               <input
                 type="number"
                 name="precioCobrado"
                 min="0"
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none text-xl font-bold text-blue-700"
+                className="w-full px-5 py-3 bg-orange-50/30 border border-orange-200 rounded-2xl focus:ring-2 focus:ring-[#ED7044] outline-none text-xl font-bold text-[#ED7044] transition-all-smooth"
                 placeholder="0"
                 value={formData.precioCobrado}
                 onChange={handleChange}
@@ -220,7 +220,7 @@ export default function ActivarEtiquetaPage() {
             <button
               type="submit"
               disabled={status.type === 'loading'}
-              className="w-full md:w-auto px-10 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold rounded-xl shadow-[0_10px_20px_rgba(59,130,246,0.2)] transform transition-all-smooth hover:-translate-y-1 active:translate-y-0 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 ml-auto"
+              className="w-full md:w-auto px-10 py-4 bg-[#ED7044] hover:bg-[#D95F35] text-white font-bold rounded-2xl shadow-lg shadow-[#ED7044]/30 transform transition-all-smooth hover:-translate-y-1 active:translate-y-0 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 ml-auto text-base"
             >
                {status.type === 'loading' ? (
                 <>
